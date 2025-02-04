@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_web_app/constant/colors.dart';
-import 'package:my_flutter_web_app/constant/nav_items.dart';
+import 'package:my_flutter_web_app/widgets/header_mobile.dart';
 
 //Widgets con estado es decir regresa o hace (evento, interaccion del usuario, ect)
 class HomePage extends StatefulWidget {
@@ -25,38 +25,8 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.vertical, // Indica que el scroll es vertical.
           children: [
             //Main
-            Container(
-              //Espaciador sin contenido.
-              height: 50.0,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.transparent, CustomColor.bgLight1]),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Row(
-                children: [
-                  Text("Ariana Grande",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: CustomColor.yellowSecondary)),
-                  Spacer(),
-                  for (int i = 0; i < navTitles.length; i++)
-                    Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              navTitles[i],
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: CustomColor.whitePrimary),
-                            )))
-                ],
-              ),
-            ),
+            // HeaderDesktop(),
+            HeaderMobile(onLogoTap: () {}, onMenuTap: () {}),
             //Skills
             Container(
               height: 500,

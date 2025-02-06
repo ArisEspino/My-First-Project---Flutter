@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_web_app/constant/colors.dart';
+import 'package:my_flutter_web_app/constant/size.dart';
+import 'package:my_flutter_web_app/widgets/drawer_mobile.dart';
+import 'package:my_flutter_web_app/widgets/header_desktop.dart';
+//import 'package:my_flutter_web_app/widgets/header_desktop.dart';
 import 'package:my_flutter_web_app/widgets/header_mobile.dart';
 
 //Widgets con estado es decir regresa o hace (evento, interaccion del usuario, ect)
@@ -15,42 +19,56 @@ class HomePage extends StatefulWidget {
 //_HomePageState es el estado de homePage.
 //build(BuildContext se ejecuta para construir la UI.
 class _HomePageState extends State<HomePage> {
+  final scaffoldKey =
+      GlobalKey<ScaffoldState>(); //usamos una key para utilizar el sidebar
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: CustomColor.scaffoldBg,
-        //Estructura base de la pantalla.
-        body: ListView(
-          //Para usar mas widgets
-          scrollDirection: Axis.vertical, // Indica que el scroll es vertical.
-          children: [
-            //Main
-            // HeaderDesktop(),
-            HeaderMobile(onLogoTap: () {}, onMenuTap: () {}),
-            //Skills
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //Projects
-            SizedBox(
-              height: 500,
-              width: double.maxFinite,
-            ),
-            //Contact
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
-            //Footer
-            SizedBox(
-              height: 500,
-              width: double.maxFinite,
-            )
-          ],
-        ));
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+          key: scaffoldKey, //Llamamos en nuestro Scaffold.
+          backgroundColor: WickedColors.scaffoldBg,
+          endDrawer: constraints.maxWidth >= kMinDesktopWidth
+              ? null
+              : const SideBarMobile(),
+          //Estructura base de la pantalla.
+          body: ListView(
+            //Para usar mas widgets
+            scrollDirection: Axis.vertical, // Indica que el scroll es vertical.
+            children: [
+              //Main
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const HeaderDesktop()
+              else
+                HeaderMobile(
+                    onLogoTap: () {},
+                    onMenuTap: () {
+                      scaffoldKey.currentState?.openEndDrawer(); //llamamos
+                    }),
+              //Skills
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: WickedColors.scaffoldBg,
+              ),
+              //Projects
+              SizedBox(
+                height: 500,
+                width: double.maxFinite,
+              ),
+              //Contact
+              Container(
+                height: 500,
+                width: double.maxFinite,
+                color: Colors.blueGrey,
+              ),
+              //Footer
+              SizedBox(
+                height: 500,
+                width: double.maxFinite,
+              )
+            ],
+          ));
+    });
   }
 }
 

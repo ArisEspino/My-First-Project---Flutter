@@ -1,13 +1,10 @@
 import 'dart:ui';
 
-class CustomColor {
-  static const Color scaffoldBg = Color(0xff252734);
-  static const Color bgLight1 = Color(0xff333646);
-  static const Color bgLight2 = Color(0xff424657);
-  static const Color textFieldBg = Color(0xffC8C9CE);
-  static const Color hintDark = Color(0xff666874);
-  static const Color yellowSecondary = Color(0xffFFC25C);
-  static const Color yellowPrimary = Color(0xffFFAF29);
-  static const Color whitePrimary = Color(0xffffffff);
-  static const Color whiteSecondary = Color(0xffC8C9CE);
+class WickedColors {
+  static const Color scaffoldBg = Color(0xff191919);  // Fondo negro/gris oscuro
+  static const Color navbarGreen = Color(0xff104F24);  // Verde oscuro
+  static const Color navbarLightGreen = Color(0xff6DBF4A);  // Verde claro
+  static const Color navbarPink = Color(0xffE45BA2);  // Rosa intenso
+  static const Color textPrimary = Color(0xffFFFFFF);  // Blanco para texto
+  static const Color textAccent = Color(0xff6DBF4A);  // Verde claro para resaltar
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_web_app/constant/colors.dart';
-import 'package:my_flutter_web_app/constant/nav_items.dart';
+import 'package:my_flutter_web_app/constant/index.dart';
+
 import 'package:my_flutter_web_app/styles/styles.dart';
-import 'package:my_flutter_web_app/widgets/site_logo.dart';
+import 'package:my_flutter_web_app/widgets/index.dart';
+
+//Index
+
 
 //Widgets sin estado
 class HeaderDesktop extends StatelessWidget {

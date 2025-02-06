@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_web_app/constant/colors.dart';
+
+//Index
+import '../constant//index.dart';
 
 class SiteLogo extends StatelessWidget {
   const SiteLogo(

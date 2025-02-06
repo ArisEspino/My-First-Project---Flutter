@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_web_app/constant/colors.dart';
-import 'package:my_flutter_web_app/constant/size.dart';
-import 'package:my_flutter_web_app/widgets/drawer_mobile.dart';
-import 'package:my_flutter_web_app/widgets/header_desktop.dart';
-//import 'package:my_flutter_web_app/widgets/header_desktop.dart';
-import 'package:my_flutter_web_app/widgets/header_mobile.dart';
+
+//Index
+import '../constant/index.dart';
+import '../widgets/index.dart';
 
 //Widgets con estado es decir regresa o hace (evento, interaccion del usuario, ect)
 class HomePage extends StatefulWidget {
@@ -24,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      //constraints nos ayudara en tomar las medidas de nuestra plantalla.
       return Scaffold(
           key: scaffoldKey, //Llamamos en nuestro Scaffold.
           backgroundColor: WickedColors.scaffoldBg,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_web_app/constant/colors.dart';
-import 'package:my_flutter_web_app/constant/nav_items.dart';
+
+import 'package:my_flutter_web_app/constant/index.dart';
+
+//Index
 
 class SideBarMobile extends StatelessWidget {
   const SideBarMobile({super.key});
@@ -12,6 +14,7 @@ class SideBarMobile extends StatelessWidget {
       child: ListView(
         children: [
           Align(
+            //alinea con el padding
             alignment: Alignment.centerLeft,
             child: Padding(
               padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),

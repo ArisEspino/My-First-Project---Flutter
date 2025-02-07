@@ -32,8 +32,8 @@ class SideBarMobile extends StatelessWidget {
                   color: WickedColors.navbarGreen,
                   fontWeight: FontWeight.w600,
                   fontSize: 16),
-              onTap: () {},
-              leading: Icon(navIcons[i]),
+              onTap: () {}, //define la accion que se ejecuta (esta vacio)
+              leading: Icon(navIcons[i]), //mostrar iconos a la izquierda del title.
               title: Text(navTitles[i]),
             )
         ],

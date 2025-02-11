@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_web_app/widgets/main_mobile.dart';
 
 //Index
 import '../constant/index.dart';
@@ -23,9 +24,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //constraints nos ayudara en tomar las medidas de nuestra plantalla.
     return LayoutBuilder(builder: (context, constraints) {
-      final screenSize = MediaQuery.of(context).size;
-      final screenWidth = screenSize.width;
-      final screenHeight = screenSize.height;
       return Scaffold(
           key: scaffoldKey, //Llamamos en nuestro Scaffold.
           backgroundColor: WickedColors.scaffoldBg,
@@ -47,66 +45,15 @@ class _HomePageState extends State<HomePage> {
                     scaffoldKey.currentState?.openEndDrawer(); //llamamos
                   },
                 ),
-              //  MainDesktop(),
-              Container(
-                height: screenHeight,
-                margin: EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
-                constraints: BoxConstraints(minHeight: 560.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //avatar img
-                    ShaderMask(
-                      shaderCallback: (bounds) {
-                        return LinearGradient(colors: [
-                          // ignore: deprecated_member_use
-                          WickedColors.scaffoldBg.withOpacity(0.6),
-                          // ignore: deprecated_member_use
-                          WickedColors.scaffoldBg.withOpacity(0.6),
-                        ]).createShader(bounds);
-                      },
-                      blendMode: BlendMode.srcATop,
-                      child: Image.asset(
-                        "lib/assets/wicked-glinda.png",
-                        width: screenWidth / 4,
-                      ),
-                    ),
-                    //intro
-                    const Text(
-                      "Hi\nI'm Melanie\n A flutter Developer",
-                      style: TextStyle(
-                          fontSize: 24.0,
-                          height: 1.5,
-                          fontWeight: FontWeight.bold,
-                          color: WickedColors.textPrimary),
-                    ),
-                    const SizedBox(height: 15),
-                    SizedBox(
-                      width: 190.0,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: WickedColors.navbarGreen),
-                          onPressed: () {},
-                          child: const Text(
-                            "Get in touch",
-                            style: TextStyle(
-                              color: WickedColors.textPrimary,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
-                    )
-                    //btn
-                  ],
-                ),
-              ),
-
-              //Skills
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const MainDesktop()
+              else
+                const MainMobile(),
+              //ACTORS
               Container(
                 height: 500,
                 width: double.maxFinite,
-                color: WickedColors.scaffoldBg,
+                color: WickedColors.navbarGreen,
               ),
               //Projects
               SizedBox(

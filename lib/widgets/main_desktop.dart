@@ -8,7 +8,7 @@ class MainDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
-    
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.0),
       height: screenSize.height / 1.2,
@@ -47,6 +47,7 @@ class MainDesktop extends StatelessWidget {
           ),
           Image.asset(
             "lib/assets/wicked-glinda.png",
+            width: screenWidth /  2,
           ),
         ],
       ),

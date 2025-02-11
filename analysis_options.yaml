@@ -10,6 +10,7 @@
 analyzer:
   errors:
     sized_box_for_whitespace: ignore
+    constant_identifier_names: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

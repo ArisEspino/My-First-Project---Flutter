@@ -16,7 +16,7 @@ class MainMobile extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 560.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //avatar img
           ShaderMask(
@@ -31,7 +31,7 @@ class MainMobile extends StatelessWidget {
             blendMode: BlendMode.srcATop,
             child: Image.asset(
               "lib/assets/wicked-glinda.png",
-              width: screenWidth,
+              width: screenWidth / 2,
             ),
           ),
           SizedBox(

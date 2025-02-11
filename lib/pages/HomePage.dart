@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_web_app/widgets/actorsDesktop.dart';
+import 'package:my_flutter_web_app/widgets/actorsMobile.dart';
 import 'package:my_flutter_web_app/widgets/main_mobile.dart';
 
 //Index
@@ -23,6 +25,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //constraints nos ayudara en tomar las medidas de nuestra plantalla.
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
           key: scaffoldKey, //Llamamos en nuestro Scaffold.
@@ -51,10 +55,30 @@ class _HomePageState extends State<HomePage> {
                 const MainMobile(),
               //ACTORS
               Container(
-                height: 500,
-                width: double.maxFinite,
+                width: screenWidth,
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
                 color: WickedColors.navbarGreen,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    //title
+                    const Text(
+                      "Social | Actors",
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: WickedColors.textPrimary),
+                    ),
+                    SizedBox(height: 50),
+                    //social and actors
+                    if (constraints.maxWidth >= kMedDesktopWidth)
+                      const ActorsDesktop()
+                    else
+                      const ActorsMobile()
+                  ],
+                ),
               ),
+
               //Projects
               SizedBox(
                 height: 500,

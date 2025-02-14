@@ -16,7 +16,7 @@ class MainMobile extends StatelessWidget {
       constraints: const BoxConstraints(minHeight: 560.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //avatar img
           ShaderMask(

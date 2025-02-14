@@ -40,7 +40,7 @@ class ActorsMobile extends StatelessWidget {
               for (int i = 0; i < actors_items.length; i++)
                 Chip(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 12.0, horizontal: 16.0),
+                      vertical: 10.0, horizontal: 16.0),
                   backgroundColor: WickedColors.navbarPink,
                   label: Text(actors_items[i]["title"]),
                   avatar: Image.asset(actors_items[i]["img"]),

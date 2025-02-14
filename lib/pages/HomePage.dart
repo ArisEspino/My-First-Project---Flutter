@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_web_app/utils/projects_utils.dart';
 import 'package:my_flutter_web_app/widgets/actorsDesktop.dart';
 import 'package:my_flutter_web_app/widgets/actorsMobile.dart';
 import 'package:my_flutter_web_app/widgets/main_mobile.dart';
@@ -55,12 +56,12 @@ class _HomePageState extends State<HomePage> {
                 const MainMobile(),
               //ACTORS
               Container(
-                width: screenWidth,
-                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-                color: WickedColors.navbarGreen,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
+                  width: screenWidth,
+                  padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                  color: WickedColors.navbarGreen,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    /* children: [
                     //title
                     const Text(
                       "Social | Actors",
@@ -75,14 +76,12 @@ class _HomePageState extends State<HomePage> {
                       const ActorsDesktop()
                     else
                       const ActorsMobile()
-                  ],
-                ),
-              ),
+                  ]*/
+                  )),
 
-              //Projects
-              SizedBox(
-                height: 500,
-                width: double.maxFinite,
+              //Projects_mago_oz
+              ProjectCardWidget(
+                project: workProjectUtils.first,
               ),
               //Contact
               Container(

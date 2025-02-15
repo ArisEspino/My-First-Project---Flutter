@@ -14,110 +14,92 @@ class ProjectCardWidget extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
     return Container(
-      padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
-      width: screenWidth,
+      clipBehavior: Clip.antiAlias,
+      height: 290,
+      width: 260,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: WickedColors.textPrimary),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          //Work project title
-          const Text(
-            "Sequels to the film.",
-            style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: WickedColors.textPrimary),
+          //Image
+          Image.asset(
+            project.image,
+            height: 140,
+            width: 260,
+            fit: BoxFit.cover,
           ),
+          //Title
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 5, 12, 12),
+            child: Text(
+              project.title,
+              style: TextStyle(
+                  fontWeight: FontWeight.w700, color: WickedColors.scaffoldBg),
+            ),
+          ),
+          //SubTitle
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+            child: Text(
+              project.subtitle,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 11,
+                  color: WickedColors.scaffoldBg),
+            ),
+          ),
+          const Spacer(),
+          //Footer
           Container(
-            clipBehavior: Clip.antiAlias,
-            height: 280.0,
-            width: 250.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: WickedColors.textPrimary),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
+            color: WickedColors.navbarGreen,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            child: Row(
               children: [
-                //Image
-                Image.asset(
-                  project.image,
-                  height: 140,
-                  width: 250,
-                  fit: BoxFit.cover,
-                ),
-                //Title
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 5, 12, 12),
-                  child: Text(
-                    project.title,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: WickedColors.scaffoldBg),
-                  ),
-                ),
-                //SubTitle
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-                  child: Text(
-                    project.subtitle,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 10,
-                        color: WickedColors.scaffoldBg),
-                  ),
+                Text(
+                  "Available on:",
+                  style: TextStyle(
+                      color: WickedColors.scaffoldBg,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10),
                 ),
                 const Spacer(),
-                //Footer
-                Container(
-                  color: WickedColors.navbarGreen,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                  child: Row(
-                    children: [
-                      Text(
-                        "Available on:",
-                        style: TextStyle(
-                            color: WickedColors.scaffoldBg,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10),
+                if (project.movieLink != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: InkWell(
+                      onTap: () {
+                        js.context.callMethod("open", [project.movieLink]);
+                      },
+                      child: Image.asset(
+                        "lib/assets/projects/film.png",
+                        color: WickedColors.textPrimary,
                       ),
-                      const Spacer(),
-                      if (project.movieLink != null)
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6),
-                          child: InkWell(
-                            onTap: () {
-                              js.context
-                                  .callMethod("open", [project.movieLink]);
-                            },
-                            child: Image.asset(
-                              "lib/assets/projects/film.png",
-                              color: WickedColors.textPrimary,
-                            ),
-                          ),
-                        ),
-                      if (project.webLink != null)
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6),
-                          child: InkWell(
-                            onTap: () {
-                              js.context.callMethod("open", [project.webLink]);
-                            },
-                            child: Image.asset(
-                              "lib/assets/projects/web.png",
-                              color: WickedColors.textPrimary,
-                            ),
-                          ),
-                        )
-                    ],
+                    ),
                   ),
-                )
+                if (project.webLink != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 6),
+                    child: InkWell(
+                      onTap: () {
+                        js.context.callMethod("open", [project.webLink]);
+                      },
+                      child: Image.asset(
+                        "lib/assets/projects/web.png",
+                        color: WickedColors.textPrimary,
+                      ),
+                    ),
+                  )
               ],
             ),
           )
-
-          //Work project card
         ],
       ),
     );
   }
 }
+
+/*
+         */
